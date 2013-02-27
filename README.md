@@ -1,4 +1,4 @@
-static
+Static
 ======
 
-A canvas grid of constantly changing  colors. Trippy.
+A canvas grid of constantly changing colors. Trippy.
