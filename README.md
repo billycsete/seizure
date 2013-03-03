@@ -3,7 +3,7 @@ Seizure
 
 A canvas grid of constantly changing colors. Trippy.
 
-<strong>Demo:</strong> http://williamcsete.com/sandbox/seizure/
+http://williamcsete.com/sandbox/seizure/
 
 
 Usage
