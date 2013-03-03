@@ -7,7 +7,7 @@ A canvas grid of constantly changing colors. Trippy.
 Usage
 ------
 
-'var mySeizure = new Seizure('#static');'
+`var mySeizure = new Seizure('#static');`
 
 
 To Do

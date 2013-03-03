@@ -21,10 +21,10 @@
 		init : function() {
 			var self = this;
 
-			this.setCanvasSize();
+			this.updateCanvasSize();
 
 			$(window).on('resize', function(){
-				self.setCanvasSize();
+				self.updateCanvasSize();
 			});
 
 			this.inputControls();
@@ -59,8 +59,7 @@
 			return '#'+Math.floor(Math.random()*16777215).toString(16);
 		},
 
-		setCanvasSize : function() {
-			// update canvas size
+		updateCanvasSize : function() {
 			this.$element.attr('height', $(window).height());
 			this.$element.attr('width', $(window).width());
 		},
