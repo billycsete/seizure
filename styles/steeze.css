@@ -4,19 +4,24 @@
  *
  */
 
-/* ==========================================================================
-   Static
-   ========================================================================== */
-
-
 /* Canvas Container
 ------------------------------------------ */
-#static { position:fixed; z-index:1; }
-
-/**
- * comment that could
- * span multiple lines
- */
+body { position:relative; }
+#static { display:block; z-index:1; width:100%; height:100%; }
 
 
-/* section comment */
+/* Controls
+------------------------------------------ */
+#controls {
+	position:absolute; top:10px; left:10px; z-index:10;
+	margin:0; padding:40px;
+	background:rgba(255,255,255, 1);
+}
+
+#controls li { list-style-type:none; }
+#controls label {
+	display:block;
+}
+#controls input {
+	width:100%;
+}

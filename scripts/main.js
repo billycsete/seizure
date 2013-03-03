@@ -1,62 +1,101 @@
 
+var Static = {
 
-var ctx;
-var canvas;
-var shapesAccross = 100;
-var shapesTall = 150;
-var bgHeight = getDocHeight();
-var bgWidth = document.width;
-var logMessage;
+	init : function(element) {
+		var canvas = $(element);
+		var ctx = canvas[0].getContext('2d');
+		var bgHeight = $(window).height();
+		var bgWidth = $(window).width();
+		var self = this;
 
-function init(){
-	ctx = document.getElementById('static').getContext('2d');
-	canvas = $('#static');
+		// defaults
+		var shapesAccross = 70;
+		var shapesTall = 50;
+		var interval = 100;
 
-	setCanvasSize(canvas);
-	$(window).on('resize', function(){
-		setCanvasSize(canvas);
-	});
+		console.log($('#accross'));
 
-	return setInterval(drawBackground,100);
-}
+		self.setCanvasSize(canvas);
 
-function drawBackground() {
-	var a;
-	var t;
-	var color;
-	var shapeHeight = getDocHeight() / shapesTall;
-	var shapeWidth = document.width / shapesAccross;
+		$(window).on('resize', function(){
+			self.setCanvasSize(canvas);
+		});
 
-	for (a = 0; a <= shapesAccross; a++ ) {
-		for (t = 0; t <= shapesTall; t++ ) {
-			drawShape(shapeWidth * a, shapeHeight * t, shapeWidth, shapeHeight, randomColor());
+		$('input').change(function() {
+			switch(this.id) {
+				case 'accross':
+					shapesAccross = this.value;
+					$('#accross-val').html(this.value);
+					break;
+				case 'tall':
+					shapesTall = this.value;
+					$('#tall-val').html(this.value);
+					break;
+			}
+		});
+
+		$('#presets button').on('click', function() {
+			switch(this.id) {
+				case 'static-btn':
+					shapesAccross = 180;
+					shapesTall = 160;
+					break;
+				case 'big-squares-btn':
+					shapesAccross = 10;
+					shapesTall = 6;
+					break;
+				case 'small-squares-btn':
+					shapesAccross = 70;
+					shapesTall = 50;
+					break;
+				case 'stripes-btn':
+					$('#tall-val')
+					shapesAccross = 1;
+					shapesTall = 60;
+					break;
+			}
+			$('#accross')[0].value = shapesAccross;
+			$('#tall')[0].value = shapesTall;
+			$('#accross-val').html(shapesAccross);
+			$('#tall-val').html(shapesTall);
+		});
+
+		return setInterval(function() {
+			console.log(shapesTall, shapesAccross);
+			self.drawBackground(ctx, shapesAccross, shapesTall, interval);
+		},interval);
+	},
+
+	drawBackground : function(ctx, accross, tall, interval) {
+		var a;
+		var t;
+		var color;
+		var self = this;
+		var shapeHeight = $(window).height() / tall;
+		var shapeWidth = $(window).width() / accross;
+
+		for (a = 0; a <= accross; a++ ) {
+			for (t = 0; t <= tall; t++ ) {
+				self.drawShape(ctx, shapeWidth * a, shapeHeight * t, shapeWidth, shapeHeight, self.randomColor());
+			}
 		}
+	},
+
+	drawShape : function(ctx, x, y, width, height, color) {
+		ctx.fillStyle = color;
+		ctx.fillRect(x,y,width, height);
+	},
+
+	randomColor : function() {
+		return '#'+Math.floor(Math.random()*16777215).toString(16);
+	},
+
+	setCanvasSize : function(canvas) {
+		canvas.attr('height', $(window).height());
+		canvas.attr('width', $(window).width());
 	}
 }
 
-function drawShape(x, y, width, height, color) {
-	ctx.fillStyle = color;
-	ctx.fillRect(x,y,width, height);
-}
-
-function randomColor() {
-	return '#'+Math.floor(Math.random()*16777215).toString(16);
-}
-
-function getDocHeight() {
-	var D = document;
-	return Math.max(
-		Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-		Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
-		Math.max(D.body.clientHeight, D.documentElement.clientHeight)
-	);
-}
-
-function setCanvasSize(canvas) {
-	canvas.attr('height', getDocHeight());
-	canvas.attr('width', document.width);
-}
-
 $(document).ready( function(){
-	init();
+	Static.init('#static');
 });

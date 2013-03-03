@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Billerplate</title>
+	<title>Static</title>
 	<meta name="description" content="">
 	<meta name="author" content="William Csete">
 	<meta name="viewport" content="width=device-width">
@@ -16,8 +16,27 @@
 <body>
 	<canvas id="static">Gotta have a browser that support canvas to view this</canvas>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+	<ul id="controls">
+		<li>
+			<label>Number of shapes accross:</label><span id="accross-val">70</span>
+			<input id="accross" type="range" min="1" max="200" value="70" step="1" />
+		</li>
+		<li>
+			<label>Number of shapes tall:</label><span id="tall-val">50</span>
+			<input id="tall" type="range" min="1" max="200" value="50" step="1" />
+		</li>
+		<li id="presets">
+			<h2>Presets:</h2>
+			<button id="static-btn">static</button>
+			<button id="big-squares-btn">big squares</button>
+			<button id="small-squares-btn">small squares</button>
+			<button id="stripes-btn">stripes</button>
+		</li>
+	</ul>
+
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.0.min.js"><\/script>')</script> -->
+	<script src="scripts/jquery-1.9.0.min.js"></script>
 	<script src="scripts/main.js"></script>
 	<script>
 		// var _gaq=[['_setAccount','UA-18419850-1'],['_trackPageview']];
