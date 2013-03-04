@@ -4,7 +4,6 @@
 	var Seizure = function(element) {
 		this.$element = $(element);
 		this.ctx = this.$element[0].getContext('2d');
-
 		this.interval = 100;
 
 		// defaults
