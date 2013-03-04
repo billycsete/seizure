@@ -7,11 +7,11 @@
 		this.interval = 100;
 
 		// defaults
-		this.accross = 70;
+		this.across = 70;
 		this.tall = 50;
 
 		this.shapeHeight = $(window).height() / this.tall;
-		this.shapeWidth = $(window).width() / this.accross;
+		this.shapeWidth = $(window).width() / this.across;
 
 		this.init();
 	}
@@ -40,9 +40,9 @@
 			var color;
 			var self = this;
 			this.shapeHeight = $(window).height() / this.tall;
-			this.shapeWidth = $(window).width() / this.accross;
+			this.shapeWidth = $(window).width() / this.across;
 
-			for (a = 0; a <= self.accross; a++ ) {
+			for (a = 0; a <= self.across; a++ ) {
 				for (t = 0; t <= self.tall; t++ ) {
 					self.drawShape(self.shapeWidth * a, self.shapeHeight * t, self.shapeWidth, self.shapeHeight, self.randomColor());
 				}
@@ -68,9 +68,9 @@
 
 			$('input').change(function() {
 				switch(this.id) {
-					case 'accross':
-						self.accross = this.value;
-						$('#accross-val').html(this.value);
+					case 'across':
+						self.across = this.value;
+						$('#across-val').html(this.value);
 						break;
 					case 'tall':
 						self.tall = this.value;
@@ -86,25 +86,25 @@
 			$('#presets button').on('click', function() {
 				switch(this.id) {
 					case 'static-btn':
-						self.accross = 180;
+						self.across = 180;
 						self.tall = 160;
 						break;
 					case 'big-shapes-btn':
-						self.accross = 10;
+						self.across = 10;
 						self.tall = 6;
 						break;
 					case 'small-shapes-btn':
-						self.accross = 70;
+						self.across = 70;
 						self.tall = 50;
 						break;
 					case 'stripes-btn':
-						self.accross = 1;
+						self.across = 1;
 						self.tall = 60;
 						break;
 				}
-				$('#accross')[0].value = self.accross;
+				$('#across')[0].value = self.across;
 				$('#tall')[0].value = self.tall;
-				$('#accross-val').html(self.accross);
+				$('#across-val').html(self.across);
 				$('#tall-val').html(self.tall);
 			});
 		}
