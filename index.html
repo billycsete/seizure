@@ -19,12 +19,12 @@
 
 	<ul id="controls">
 		<li>
-			<label>Number of shapes accross:</label><span id="accross-val" class="value">70</span>
-			<input id="accross" type="range" min="1" max="160" value="70" step="1" />
+			<label>Number of shapes across:</label><span id="accross-val" class="value">70</span>
+			<input id="accross" type="range" min="1" max="180" value="70" step="1" />
 		</li>
 		<li>
 			<label>Number of shapes tall:</label><span id="tall-val" class="value">50</span>
-			<input id="tall" type="range" min="1" max="160" value="50" step="1" />
+			<input id="tall" type="range" min="1" max="180" value="50" step="1" />
 		</li>
 		<li id="presets">
 			<h2>Presets:</h2>
@@ -39,10 +39,15 @@
 	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.0.min.js"><\/script>')</script>
 	<script src="scripts/main.js"></script>
 	<script>
-		// var _gaq=[['_setAccount','UA-18419850-1'],['_trackPageview']];
-		// (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		// g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		// s.parentNode.insertBefore(g,s)}(document,'script'));
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-18419850-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 	</script>
 </body>
 </html>
