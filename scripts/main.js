@@ -89,16 +89,15 @@
 						self.accross = 180;
 						self.tall = 160;
 						break;
-					case 'big-squares-btn':
+					case 'big-shapes-btn':
 						self.accross = 10;
 						self.tall = 6;
 						break;
-					case 'small-squares-btn':
+					case 'small-shapes-btn':
 						self.accross = 70;
 						self.tall = 50;
 						break;
 					case 'stripes-btn':
-						$('#tall-val')
 						self.accross = 1;
 						self.tall = 60;
 						break;
